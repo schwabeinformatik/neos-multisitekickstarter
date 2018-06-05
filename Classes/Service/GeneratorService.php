@@ -41,8 +41,7 @@ class GeneratorService extends \Neos\SiteKickstarter\Service\GeneratorService
                 "neos/neos" => "*",
                 "neos/nodetypes" => "*",
                 // we need to add these dependencies:
-                "flownative/neos-multisitehelper" => "*",
-                "wwwision/assetconstraints" => "*"
+                "flownative/neos-multisitehelper" => "*"
             ],
             "suggest" => [
                 "neos/seo" => "*"

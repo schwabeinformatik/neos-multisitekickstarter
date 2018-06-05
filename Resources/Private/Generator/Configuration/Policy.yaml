@@ -9,11 +9,11 @@ privilegeTargets:
     '{packageKey}:Nodes.{siteNodeName -> k:format.ucfirst()}':
       matcher: 'isDescendantNodeOf("/sites/{siteNodeName}")'
 
-  'Wwwision\AssetConstraints\Security\Authorization\Privilege\ReadAssetPrivilege':
+  'Neos\Media\Security\Authorization\Privilege\ReadAssetPrivilege':
     '{packageKey}:Assets.{siteNodeName -> k:format.ucfirst()}':
       matcher: 'isInCollection("{siteNodeName -> k:format.ucfirst()}")'
 
-  'Wwwision\AssetConstraints\Security\Authorization\Privilege\ReadAssetCollectionPrivilege':
+  'Neos\Media\Security\Authorization\Privilege\ReadAssetCollectionPrivilege':
     '{packageKey}:AssetCollection.{siteNodeName -> k:format.ucfirst()}':
       matcher: 'isTitled("{siteNodeName -> k:format.ucfirst()}")'
 

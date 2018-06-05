@@ -4,10 +4,9 @@
     "description": "A simple generator for Neos sites, prepared to be separated in a multi-site setup.",
     "license": "MIT",
     "require": {
-        "neos/site-kickstarter": "~3.0",
-        "neos/fluid-adaptor": "~4.0",
-        "flownative/neos-multisitehelper": "0.*",
-        "wwwision/assetconstraints": "0.*"
+        "neos/site-kickstarter": "~3.0 || ~4.0",
+        "neos/fluid-adaptor": "~4.0 || ~5.0",
+        "flownative/neos-multisitehelper": "~0.0"
     },
     "autoload": {
         "psr-4": {
