@@ -3,10 +3,16 @@
     "type": "neos-package",
     "description": "A simple generator for Neos sites, prepared to be separated in a multi-site setup.",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url" "https://github.com/schwabeinformatik/neos-multisitehelper.git"
+        }
+    ],
     "require": {
         "neos/site-kickstarter": "~3.0 || ~4.0",
         "neos/fluid-adaptor": "~4.0 || ~5.0",
-        "flownative/neos-multisitehelper": "~0.0"
+        "flownative/neos-multisitehelper": "dev-master"
     },
     "autoload": {
         "psr-4": {
