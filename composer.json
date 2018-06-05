@@ -6,7 +6,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url" "https://github.com/schwabeinformatik/neos-multisitehelper.git"
+            "url": "https://github.com/schwabeinformatik/neos-multisitehelper.git"
         }
     ],
     "require": {
