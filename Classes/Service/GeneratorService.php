@@ -48,7 +48,7 @@ class GeneratorService extends \Neos\SiteKickstarter\Service\GeneratorService
             ]
         ]);
         $this->generateSitesXml($packageKey, $siteName);
-        $this->generateSitesFusion($packageKey, $siteName);
+        $this->generateSitesRootFusion($packageKey, $siteName);
         $this->generateDefaultTemplate($packageKey, $siteName);
         $this->generateNodeTypesConfiguration($packageKey);
         $this->generateAdditionalFolders($packageKey);
