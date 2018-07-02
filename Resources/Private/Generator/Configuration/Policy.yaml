@@ -3,11 +3,11 @@ privilegeTargets:
 
   'Neos\Flow\Security\Authorization\Privilege\Entity\Doctrine\EntityPrivilege':
     '{packageKey}:Site.{siteNodeName -> k:format.ucfirst()}':
-      matcher: 'isType("Neos\Neos\Domain\Model\Site") && property("nodeName") == "{siteNodeName}"'
+      matcher: 'isType("Neos\Neos\Domain\Model\Site") && property("nodeName") == "{rootNodeName}"'
 
   'Neos\Neos\Security\Authorization\Privilege\NodeTreePrivilege':
     '{packageKey}:Nodes.{siteNodeName -> k:format.ucfirst()}':
-      matcher: 'isDescendantNodeOf("/sites/{siteNodeName}")'
+      matcher: 'isDescendantNodeOf("/sites/{rootNodeName}")'
 
   'Neos\Media\Security\Authorization\Privilege\ReadAssetPrivilege':
     '{packageKey}:Assets.{siteNodeName -> k:format.ucfirst()}':

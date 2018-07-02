@@ -36,16 +36,16 @@ class GeneratorService extends \Neos\SiteKickstarter\Service\GeneratorService
     {
         // below copied from parent::generateSitePackage()
         $this->packageManager->createPackage($packageKey, [
-            'type' => 'neos-site',
+            'type'    => 'neos-site',
             "require" => [
-                "neos/neos" => "*",
-                "neos/nodetypes" => "*",
+                "neos/neos"                       => "*",
+                "neos/nodetypes"                  => "*",
                 // we need to add these dependencies:
-                "flownative/neos-multisitehelper" => "*"
+                "flownative/neos-multisitehelper" => "*",
             ],
             "suggest" => [
-                "neos/seo" => "*"
-            ]
+                "neos/seo" => "*",
+            ],
         ]);
         $this->generateSitesXml($packageKey, $siteName);
         $this->generateSitesRootFusion($packageKey, $siteName);
@@ -68,10 +68,11 @@ class GeneratorService extends \Neos\SiteKickstarter\Service\GeneratorService
     {
         $templatePathAndFilename = 'resource://Flownative.Neos.MultisiteKickstarter/Private/Generator/Configuration/Policy.yaml';
 
-        $contextVariables = array();
-        $contextVariables['packageKey'] = $packageKey;
-        $packageKeyDomainPart = substr(strrchr($packageKey, '.'), 1) ?: $packageKey;
+        $contextVariables                 = array();
+        $contextVariables['packageKey']   = $packageKey;
+        $packageKeyDomainPart             = substr(strrchr($packageKey, '.'), 1) ?: $packageKey;
         $contextVariables['siteNodeName'] = strtolower($packageKeyDomainPart);
+        $contextVariables['rootNodeName'] = strtolower(str_replace('.', '-', $packageKey));
 
         $fileContent = $this->renderTemplate($templatePathAndFilename, $contextVariables);
 
