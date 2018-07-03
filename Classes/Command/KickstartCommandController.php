@@ -11,10 +11,14 @@ namespace Flownative\Neos\MultisiteKickstarter\Command;
  * source code.
  */
 
+use Flownative\Neos\MultisiteHelper\Service\MultisiteSetupService;
 use Flownative\Neos\MultisiteKickstarter\Service\GeneratorService;
 use Neos\Flow\Annotations as Flow;
 use Neos\Flow\Cli\CommandController;
 use Neos\Flow\Package\PackageManagerInterface;
+use Neos\Neos\Domain\Service\SiteImportService;
+use Schwabe\Theme\Domain\Model\Settings;
+use Schwabe\Theme\Service\Compile;
 
 /**
  * Command controller for the MultisiteKickstarter
@@ -32,6 +36,24 @@ class KickstartCommandController extends CommandController
      * @Flow\Inject
      */
     protected $generatorService;
+
+    /**
+     * @Flow\Inject
+     * @var Compile
+     */
+    protected $compileService;
+
+    /**
+     * @Flow\Inject
+     * @var SiteImportService
+     */
+    protected $siteImportService;
+
+    /**
+     * @Flow\Inject
+     * @var MultisiteSetupService
+     */
+    protected $multisiteSetupService;
 
     /**
      * Kickstart a new multisite package
@@ -55,16 +77,15 @@ class KickstartCommandController extends CommandController
             $this->quit(1);
         }
 
-        $generatedFiles = $this->generatorService->generateMultisitePackage($packageKey, $siteName);
-
         $packageKeyDomainPart = substr(strrchr($packageKey, '.'), 1) ?: $packageKey;
-        $siteNodeName = strtolower($packageKeyDomainPart);
+        $siteNodeName         = strtolower($packageKeyDomainPart);
+        $rootSiteNodeName     = strtolower(str_replace('.', '-', $packageKey));
 
-        $this->outputLine(implode(PHP_EOL, $generatedFiles));
-        $this->outputLine();
-        $this->outputLine('Run "./flow site:import --package-key %s" to import the site.', [$packageKey]);
-        $this->outputLine('Then run "./flow multisite:setup --site-node-name %s" to set up the site requirements.', [$siteNodeName]);
-        $this->outputLine();
+        $this->generatorService->generateMultisitePackage($packageKey, $siteName);
+        $this->compileService->compileScss(new Settings($packageKey));
+        $this->siteImportService->importFromPackage($packageKey);
+        $this->multisiteSetupService->setup($rootSiteNodeName);
+
         $this->outputLine('Access to the site can be granted using the role "%s:%s".', [$packageKey, ucfirst($siteNodeName)]);
     }
 }

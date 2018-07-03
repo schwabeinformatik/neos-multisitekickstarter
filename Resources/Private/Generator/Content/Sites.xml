@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <site name="{siteName}" state="1" siteResourcesPackageKey="{packageKey}" siteNodeName="{siteNodeName}">
+    <nodes formatVersion="2.0">
+      <node nodeName="{siteNodeName}">
+        <variant hidden="" hiddenInIndex="" nodeType="Schwabe.Mosys:OnepageSite" removed="" sortingIndex="200" version="1" workspace="live">
+       <dimensions>
+         <f:for each="{dimensions}" as="dimension">
+          <{dimension.identifier}>{dimension.default}</{dimension.identifier}>
+         </f:for>
+       </dimensions>
+          <accessRoles __type="array"/>
+          <properties>
+            <uriPathSegment __type="string">mosys-local</uriPathSegment>
+            <canonicalLink __type="string"/>
+            <headerStyle __type="string">header-bold</headerStyle>
+            <navigationLayout __type="string">classic</navigationLayout>
+            <hideSharing __type="boolean"/>
+            <hideCookie __type="boolean"/>
+            <title __type="string">mosys.local</title>
+          </properties>
+        </variant>
+        <node nodeName="datenschutz">
+          <variant hidden="" hiddenInIndex="1" nodeType="Schwabe.Mosys:PrivacyPolicy" removed="" sortingIndex="300" version="1" workspace="live">
+       <dimensions>
+         <f:for each="{dimensions}" as="dimension">
+          <{dimension.identifier}>{dimension.default}</{dimension.identifier}>
+         </f:for>
+       </dimensions>
+            <accessRoles __type="array"/>
+            <properties>
+              <uriPathSegment __type="string">datenschutz</uriPathSegment>
+              <canonicalLink __type="string"/>
+              <title __type="string">Datenschutz</title>
+              <headerStyle __type="string">header-bold</headerStyle>
+              <hideBreadcrumbs __type="boolean"/>
+            </properties>
+          </variant>
+          <node nodeName="content">
+            <variant hidden="" hiddenInIndex="" nodeType="Schwabe.MosysNodeTypes:ContentSection" removed="" sortingIndex="100" version="1" workspace="live">
+       <dimensions>
+         <f:for each="{dimensions}" as="dimension">
+          <{dimension.identifier}>{dimension.default}</{dimension.identifier}>
+         </f:for>
+       </dimensions>
+              <accessRoles __type="array"/>
+              <properties>
+                <uriPathSegment __type="string">content</uriPathSegment>
+                <canonicalLink __type="string"/>
+                <backgroundColor __type="string">bg-white</backgroundColor>
+                <alignment __type="string">center</alignment>
+                <overlayActivated __type="boolean"/>
+                <overlayColor __type="string">overlay-black</overlayColor>
+                <overlayOpacity __type="integer">40</overlayOpacity>
+                <icon __type="string"/>
+                <display __type="string">both</display>
+                <headline __type="string"/>
+                <subline __type="string"/>
+              </properties>
+            </variant>
+            <node nodeName="content">
+              <variant hidden="" hiddenInIndex="" nodeType="Neos.Neos:ContentCollection" removed="" sortingIndex="100" version="1" workspace="live">
+       <dimensions>
+         <f:for each="{dimensions}" as="dimension">
+          <{dimension.identifier}>{dimension.default}</{dimension.identifier}>
+         </f:for>
+       </dimensions>
+                <accessRoles __type="array"/>
+                <properties/>
+              </variant>
+            </node>
+          </node>
+        </node>
+        <node nodeName="footercontent">
+          <variant hidden="" hiddenInIndex="" nodeType="Schwabe.Mosys:FooterContentCollection" removed="" sortingIndex="100" version="1" workspace="live">
+       <dimensions>
+         <f:for each="{dimensions}" as="dimension">
+          <{dimension.identifier}>{dimension.default}</{dimension.identifier}>
+         </f:for>
+       </dimensions>
+            <accessRoles __type="array"/>
+            <properties/>
+          </variant>
+        </node>
+        <node nodeName="notfound">
+          <variant hidden="" hiddenInIndex="1" nodeType="Schwabe.Mosys:404" removed="" sortingIndex="200" version="1" workspace="live">
+       <dimensions>
+         <f:for each="{dimensions}" as="dimension">
+          <{dimension.identifier}>{dimension.default}</{dimension.identifier}>
+         </f:for>
+       </dimensions>
+            <accessRoles __type="array"/>
+            <properties>
+              <uriPathSegment __type="string">404</uriPathSegment>
+              <canonicalLink __type="string"/>
+              <title __type="string">404</title>
+              <headerStyle __type="string">header-bold</headerStyle>
+              <hideBreadcrumbs __type="boolean">1</hideBreadcrumbs>
+              <overlayActivated __type="boolean"/>
+              <overlayColor __type="string">overlay-black</overlayColor>
+              <overlayOpacity __type="integer">40</overlayOpacity>
+              <backdropAlignment __type="string">center</backdropAlignment>
+              <description __type="string">Error 404 — Page not found</description>
+            </properties>
+          </variant>
+        </node>
+      </node>
+    </nodes>
+  </site>
+</root>

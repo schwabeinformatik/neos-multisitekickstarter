@@ -1,0 +1,5 @@
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        Schwabe.Mosys: true
